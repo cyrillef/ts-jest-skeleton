@@ -1,0 +1,27 @@
+{
+	"extends": "../../tsconfig-common.json",
+	"compilerOptions": {
+		"module": "NodeNext",
+		"baseUrl": "/Users/cyrille/Developer/ts/src/__tests__/server",
+		"rootDir": "/Users/cyrille/Developer/ts/src",
+		"outDir": "/Users/cyrille/Developer/ts/bintests",
+
+		"paths": {
+			"@/math/*": ["/Users/cyrille/Developer/ts/src/server/math/*"],
+			"@/tools/*": ["/Users/cyrille/Developer/ts/src/server/tools/*"]
+		},
+
+		// "moduleResolution": "NodeNext",
+		// "allowImportingTsExtensions": true,
+		// "noEmit": true
+	},
+	"include": [
+		"**/next-env.d.ts",
+		"/Users/cyrille/Developer/ts/src/__tests__/server/**/*.ts",
+		"/Users/cyrille/Developer/ts/src/server/**/*.ts"
+	],
+	"exclude": [
+		"**/node_modules/*",
+		"bin"
+	]
+}
