@@ -23,7 +23,7 @@ import { pathsToModuleNameMapper } from 'ts-jest';
 const testsSrc: string = _path.resolve(__dirname, '../..');
 const serverSrc: string = _path.resolve(__dirname, '../../../server');
 
-const aliases: any = {
+export const aliases: any = {
 	"@/math/*": [`${serverSrc}/math/*`],
 	"@/tools/*": [`${serverSrc}/tools/*`],
 };
@@ -42,11 +42,8 @@ const config: Config.InitialOptions = {
 	testEnvironment: 'node',
 	verbose: true,
 	automock: false,
-	globalSetup: '<rootDir>/server/jest.global.setup.ts',
-	globalTeardown: '<rootDir>/server/jest.global.teardown.ts',
-
-	// modulePaths: ['/Users/cyrille/Developer/ts/src/server'], // <-- This will be set to 'baseUrl' value
-	// moduleNameMapper: pathsToModuleNameMapper(aliases /* ,{ prefix: '<rootDir>/' } */),
+	globalSetup: '<rootDir>/_config/jest.global.setup.ts',
+	globalTeardown: '<rootDir>/_config/jest.global.teardown.ts',
 
 	modulePaths: [serverSrc], // <-- This will be set to 'baseUrl' value
 	moduleNameMapper: pathsToModuleNameMapper(aliases /* ,{ prefix: '<rootDir>/' } */),

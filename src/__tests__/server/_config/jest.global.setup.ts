@@ -16,7 +16,20 @@
 //
 /*jshint esversion: 9 */
 
-//import 'module-alias/register';
+// import type { GlobalConfig } from '@jest/types';
+
+// import 'module-alias/register';
+// import 'tsconfig-paths/register';
+import _path from 'path';
+import * as TSConfigPaths from 'tsconfig-paths';
+import { aliases } from './jest.config';
+
+const baseUrl: string = _path.resolve(__dirname, '..');
+// @ts-ignore: TS6133
+const cleanup: () => void = TSConfigPaths.register({
+	baseUrl,
+	paths: aliases, // tsConfig.compilerOptions.paths,
+});
 
 export const globalSetup: () => Promise<void>
 	= async (): Promise<void> => {

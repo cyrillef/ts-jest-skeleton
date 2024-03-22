@@ -4,11 +4,11 @@
 	"description": "ts-jest-setup",
 	"main": "start.js",
 	"scripts": {
-		"clean-node": "rm -Rf node_modules && rm -f package-lock.json",
-		"clean-server": "rm -Rf bin && rm -Rf bintests",
+		"clean-node": "rimraf --glob node_modules && rm -f package-lock.json",
+		"clean-server": "rimraf --glob bin && rimraf --glob bintests",
 		"clean-client": "echo \"none\"",
 		"clean-all": "npm run clean-server && npm run clean-client && npm run clean-node",
-		"clean": "npm run clean-server",
+		"clean": "npm run clean-server && npm run clean-client",
 
 		"clean-tests": "jest --clearCache",
 		"debug-tests-server": "cross-env NODE_ENV=test jest --testTimeout=5000 --verbose --detectOpenHandles --runInBand --config=./src/__tests__/server/_config/jest.config.ts --watch ./src/__tests__/server",
